@@ -1,6 +1,14 @@
+import { useState } from 'react'
 import './App.css'
+import AllGames from './AllGames.jsx'
 
 function App() {
+  const [showAllGames, setShowAllGames] = useState(false)
+
+  if (showAllGames) {
+    return <AllGames onBack={() => setShowAllGames(false)} />
+  }
+
   return (
     <div className="app-container">
       <h1>Geeki</h1>
@@ -29,7 +37,8 @@ function App() {
 
         <div className="pagination">1/4</div>
       </div>
-
+      
+      <button className="Allgames" onClick={() => setShowAllGames(true)}>All Games</button>      
       <div className="advertisement">PUB</div>
     </div>
   )
